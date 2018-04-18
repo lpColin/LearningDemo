@@ -1,0 +1,63 @@
+﻿@model PagedList.IPagedList<OrderOnlineAPI.dbModel.production_info>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ShowProducts";
+}
+
+<h2>ShowProducts</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ProdName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ProdPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ProdRemarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ProdmainPictures)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ProdsaleCount)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdRemarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdmainPictures)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdsaleCount)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductionId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="pager">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)of @Model.PageCount
+    @*@Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount);*@
+    @Html.PagedListPager(Model, page => Url.Action("ShowProducts", new { page }));
+</div>

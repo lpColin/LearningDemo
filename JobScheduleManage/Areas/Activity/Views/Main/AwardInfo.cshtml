@@ -1,0 +1,59 @@
+﻿@model List<DemoMvc.Areas.Activity.Models.AwardModel>
+@{
+    ViewBag.Title = "奖品配置信息";
+}
+<br /><br />
+<p>
+    @Html.ActionLink("添加新的奖项", "EditActivityConfig", "Main", new { @class = "btn btn-primary", @role="button"})
+</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <caption><strong>奖品信息</strong></caption>
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    开始（比例%）
+                </th>
+                <th>
+                    结束（比例%）
+                </th>
+                <th>
+                    奖品内容
+                </th>
+                <th>
+                    是否属于奖品
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AwardId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RatioBegain)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RatioEnd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AwardMessage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsAward)
+                    </td>
+                    <td>
+                        @Html.ActionLink("编辑", "EditActivityConfig", new { id = item.AwardId }, new {@class = "btn btn-primary btn-sm", @role = "button" }) &nbsp;&nbsp;
+                        @Html.ActionLink("删除", "DeleteAwardbyId", new { id = item.AwardId }, new { id = item.AwardId, @class = "btn btn-primary btn-sm", @role = "button" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

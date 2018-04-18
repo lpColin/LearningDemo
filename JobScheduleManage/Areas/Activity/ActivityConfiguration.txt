@@ -1,0 +1,4 @@
+id,start,end,message,isAward
+1,0,30,获得锦囊一个,true
+2,31,60,谢谢惠顾！,true
+3,60,100,获得锦囊二个,true

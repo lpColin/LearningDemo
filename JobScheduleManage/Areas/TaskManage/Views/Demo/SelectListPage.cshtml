@@ -1,0 +1,20 @@
+﻿@model DemoMvc.Areas.TaskManage.Models.Student
+
+@{
+    ViewBag.Title = "SelectListPage";
+}
+
+<h2>SelectListPage</h2>
+
+@Html.DropDownListFor(model=>model.id, ViewBag.select1 as IEnumerable<SelectListItem>)
+
+<p>--------------</p>
+@Html.DropDownListFor(model => model.id, ViewBag.select2 as IEnumerable<SelectListItem>)
+
+
+
+<h2>--------split--------</h2>
+@Html.DropDownListFor(model => model.id, ViewBag.select1 as IEnumerable<SelectListItem>,"")
+
+@Html.DropDownListFor(model => model.id, ViewBag.select2 as IEnumerable<SelectListItem>,"")
+

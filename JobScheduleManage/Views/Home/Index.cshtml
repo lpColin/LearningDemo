@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>个人学习</h2>
+<lu>
+@*<li><a href="@Url.Action("ActivityIndex","Main",new { area = "Activity" })"> 抽奖 </a></li>*@
+<li><a href="~/App/rp/workspace"> 人事系统</a></li>
+@*<li><a href="@Url.Action("PrPortal","Main",new { area = "Home" })"> 人事系统 </a></li>*@
+<li>@Html.ActionLink("抽奖", "ActivityIndex", "Main",new { area = "Activity" },null)</li>
+<li>@Html.ActionLink("抽奖配置后台", "ActivityGetAwardConfigGet", "Main", new { area = "Activity" }, null)</li>
+</lu>

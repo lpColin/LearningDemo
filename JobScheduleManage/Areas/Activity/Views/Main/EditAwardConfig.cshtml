@@ -1,0 +1,40 @@
+﻿@model DemoMvc.Areas.Activity.Models.AwardModel
+@{
+    ViewBag.Title = "奖品设置";
+}
+<br />
+@using (Html.BeginForm("EditActivityConfig", "Main"))
+{
+    @Html.AntiForgeryToken()
+    <p>添加/修改奖品配置</p>
+    <table class="table">
+        <tr>
+            <td>Id(不能重复)</td>
+            <td>@Html.TextBox("AwardId")</td>
+        </tr>
+        <tr>
+            <td>开始（所占比例%）</td>
+            <td>@Html.TextBox("RatioBegain")</td>
+        </tr>
+        <tr>
+            <td>结束（所占比例%）</td>
+            <td>@Html.TextBox("RatioEnd")</td>
+        </tr>
+        <tr>
+            <td>奖品内容</td>
+            <td>@Html.TextBox("AwardMessage")</td>
+        </tr>
+        <tr>
+            <td>是否属于奖品</td>
+            <td>@Html.CheckBox("IsAward", true)</td>
+        </tr>
+    </table>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="保存" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+
+
